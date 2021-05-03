@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>Role Reverser - Change custom elements defined with roles to their native HTML equivalents</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, shrink-to-fit=no">
+</head>
+<body>
+
+
+ <main>
+  <h1>Role Reverser</h1>
+  <!-- 
+    Note that this version is functional but lacks any styling.
+  -->
+
+  <form id="role-reverser">
+    <div class="row">
+      <div class="col col-6">
+        <div><label for="txtSource">Source HTML:</label></div>
+        <textarea id="txtSource" cols="20" rows="20">&lt;div&gt;&lt;span role="button"&gt;&lt;code&gt;DIV&lt;/code&gt; with &lt;code&gt;role="button"&lt;/code&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span role="link"&gt;&lt;code&gt;DIV&lt;/code&gt; with &lt;code&gt;role="link"&lt;/code&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div role="heading" aria-level="1"&gt;Fake heading set to level 1&lt;/div&gt;
+&lt;div role="heading" aria-level="2"&gt;Fake heading set to level 2&lt;/div&gt;
+&lt;div role="heading" aria-level="3"&gt;Fake heading set to level 3&lt;/div&gt;
+&lt;div role="heading" aria-level="4"&gt;Fake heading set to level 4&lt;/div&gt;
+&lt;div role="heading" aria-level="5"&gt;Fake heading set to level 5&lt;/div&gt;
+&lt;div role="heading" aria-level="6"&gt;Fake heading set to level 6&lt;/div&gt;
+&lt;div role="list"&gt;
+&lt;div role="listitem"&gt;&lt;code&gt;DIV&lt;/code&gt; list item with &lt;code&gt;role="listitem"&lt;/code&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div role="listbox"&gt;
+&lt;div role="option"&gt;&lt;code&gt;DIV&lt;/code&gt; option with &lt;code&gt;role="option"&lt;/code&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;&lt;span role="checkbox"&gt;&lt;/span&gt;&lt;code&gt;SPAN&lt;/code&gt; with &lt;code&gt;role="checkbox"&lt;/code&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span role="radio"&gt;&lt;/span&gt;&lt;code&gt;SPAN&lt;/code&gt; with &lt;code&gt;role="radio"&lt;/code&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span role="textbox"&gt;&lt;/span&gt;&lt;code&gt;SPAN&lt;/code&gt; with &lt;code&gt;role="textbox"&lt;/code&gt;&lt;/div&gt;
+&lt;div role="main"&gt;&lt;code&gt;DIV&lt;/code&gt; with &lt;code&gt;role="main"&lt;/code&gt;&lt;/div&gt;
+&lt;div role="navigation"&gt;&lt;code&gt;DIV&lt;/code&gt; with &lt;code&gt;role="navigation"&lt;/code&gt;&lt;/div&gt;
+&lt;div role="img"&gt;&lt;code&gt;DIV&lt;/code&gt; with &lt;code&gt;role="img"&lt;/code&gt;&lt;/div&gt;
+&lt;div role="image"&gt;&lt;code&gt;DIV&lt;/code&gt; with &lt;code&gt;role="image"&lt;/code&gt;&lt;/div&gt;
+&lt;div role="table"&gt;&lt;code&gt;DIV&lt;/code&gt; with &lt;code&gt;role="table"&lt;/code&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;/div&gt;</textarea>  
+        <div><button type="button" class="wide" id="btnReverseRoles"><span aria-hidden="true">🔄 </span>Reverse roles</button></div>
+      </div>
+      <div class="col col-6">
+        <div><label for="txtAmended">Proper native HTML version:</label></div>
+        <textarea id="txtAmended" cols="20" rows="20"></textarea>
+        <div id="log" aria-atomic="true" role="status"></div>
+      </div>
+    </div>
+  </form>
+ </main>
+
+<div hidden id="tempDOMDumpingGround"></div>
+<script src="role-reverser.js"></script>
+
+</body>
+</html>
