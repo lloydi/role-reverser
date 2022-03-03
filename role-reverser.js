@@ -45,6 +45,9 @@ function roleReverser() {
         var clone = item.cloneNode(true);
         newDOMel.appendChild(clone);
       });
+      // console.log("newDOMel",newDOMel);
+      // console.log("parent",parent);
+      // console.log("---------");
       parent.replaceWith(newDOMel);
     }
 
@@ -63,8 +66,10 @@ function roleReverser() {
     let allElementsWithRolesCount = 0;
 
     function sweepThrough() {
-      const elementsWithRoles = src.querySelectorAll('[role="button"],[role="link"],[role="heading"],[role="option"],[role="listbox"],[role="listitem"],[role="list"],[role="checkbox"],[role="checkbox"],[role="radio"],[role="textbox"],[role="main"],[role="navigation"],[role="img"],[role="image"],[role="table"]');
-      const elementsWithRolesThatNeedSwapping = src.querySelectorAll('[role="button"]:not(button[role="button"]),[role="link"]:not(a[role="link"]),[role="heading"]:not(h1,h2,h3,h4,h5,h6)[aria-level],[role="option"]:not(option[role="option"]),[role="listbox"]:not(select[role="listbox"]),[role="listitem"]:not(li[role="listitem"]),[role="list"]:not(ul,ol),[role="checkbox"]:not(input),[role="checkbox"]:not(input),[role="radio"]:not(input),[role="textbox"]:not(input),[role="main"]:not(main),[role="navigation"]:not(nav),[role="img"]:not(img),[role="image"]:not(img),[role="table"]:not(table)');
+      let theadAlreadyOutput=false;
+      const elementsWithRoles = src.querySelectorAll('[role="button"],[role="link"],[role="heading"],[role="option"],[role="listbox"],[role="listitem"],[role="list"],[role="checkbox"],[role="checkbox"],[role="radio"],[role="textbox"],[role="main"],[role="navigation"],[role="img"],[role="image"],[role="table"],[role="rowgroup"],[role="rowgroup"],[role="row"],[role="columnheader"],[role="gridcell"]');
+      const elementsWithRolesThatNeedSwapping = src.querySelectorAll('[role="button"]:not(button[role="button"]),[role="link"]:not(a[role="link"]),[role="heading"]:not(h1,h2,h3,h4,h5,h6)[aria-level],[role="option"]:not(option[role="option"]),[role="listbox"]:not(select[role="listbox"]),[role="listitem"]:not(li[role="listitem"]),[role="list"]:not(ul,ol),[role="checkbox"]:not(input),[role="checkbox"]:not(input),[role="radio"]:not(input),[role="textbox"]:not(input),[role="main"]:not(main),[role="navigation"]:not(nav),[role="img"]:not(img),[role="image"]:not(img),[role="table"]:not(table),[role="table"]:not(table),[role="rowgroup"]:not(thead),[role="rowgroup"]:not(tbody),[role="row"]:not(tr),[role="columnheader"]:not(th),[role="gridcell"]:not(td)');
+      // console.log(elementsWithRolesThatNeedSwapping);
       if (elementsWithRolesThatNeedSwapping.length > swappedElementCount) {
         swappedElementCount = elementsWithRolesThatNeedSwapping.length;
       }
@@ -105,15 +110,41 @@ function roleReverser() {
           newElementTagName = "input";
           newElementType = elRole;
         }
+        if (elRole === "table") {
+          newElementTagName = "table";
+        }
+        if (theadAlreadyOutput) {
+          if (elRole === "rowgroup") {
+            newElementTagName = "tbody";
+          }
+        } else {
+          if (elRole === "rowgroup") {
+            newElementTagName = "thead";
+            theadAlreadyOutput = true;
+          }
+        }
+        if (elRole === "row") {
+          newElementTagName = "tr";
+        }
+        if (elRole === "columnheader") {
+          newElementTagName = "th";
+        }
+        if (elRole === "gridcell") {
+          newElementTagName = "td";
+        }
         elAttributes = [];
         let thisElAttributes = elementWithRoleThatNeedSwapping.attributes;
         for (var i = thisElAttributes.length - 1; i >= 0; i--) {
           elAttributes.push(thisElAttributes[i].name + "->" + thisElAttributes[i].value);
         }
         replaceElement(elementWithRoleThatNeedSwapping, newElementTagName, newElementType);
-        consoleStr+=elementWithRoleThatNeedSwapping.outerHTML + "\n👉 <" + newElementTagName + ">\n----\n";
+        consoleStr+=elementWithRoleThatNeedSwapping.outerHTML + "\nChanges to <" + newElementTagName + ">\n----\n";
       });
     }
+    sweepThrough();
+    sweepThrough();
+    sweepThrough();
+    sweepThrough();
     sweepThrough();
     sweepThrough();
     let strChangeSummary = "";
@@ -129,7 +160,6 @@ function roleReverser() {
       txtAmended.value = tempDOMDumpingGround.innerHTML;
       tempDOMDumpingGround.innerHTML = "";
     }
-    // alert(strChangeSummary);
     strChangeSummary = "<ul>" + strChangeSummary + "</ul>";
     log.innerHTML = strChangeSummary;
     console.log(consoleStr);
