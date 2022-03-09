@@ -5,9 +5,10 @@ function roleReverser() {
     const txtAmended = document.querySelector("#txtAmended");
     const tempDOMDumpingGround = document.querySelector("#tempDOMDumpingGround");
     const log = document.querySelector("#log");
-    let scopeDoc=false;
-    let consoleStr="";
-    let pointlessTabindexCount=0;
+    const btnReverseRoles = document.querySelector("#btnReverseRoles");
+    let scopeDoc = false;
+    let consoleStr = "";
+    let pointlessTabindexCount = 0;
 
     function replaceElement(parent, newElementTagName, newElementType) {
       var newDOMel = document.createElement(newElementTagName);
@@ -26,28 +27,18 @@ function roleReverser() {
           }
         }
       }
-      if (
-        (newElementTagName==="a")||
-        (newElementTagName==="button")||
-        (newElementTagName==="input")||
-        (newElementTagName==="select")||
-        (newElementTagName==="textarea")
-        ) {
-        if (newDOMel.getAttribute("tabindex")){
+      if (newElementTagName === "a" || newElementTagName === "button" || newElementTagName === "input" || newElementTagName === "select" || newElementTagName === "textarea") {
+        if (newDOMel.getAttribute("tabindex")) {
           pointlessTabindexCount++;
           newDOMel.removeAttribute("tabindex");
         }
       }
-      // console.log("pointlessTabindexCount = " + pointlessTabindexCount);
       NodeList.prototype.forEach = Array.prototype.forEach;
       var children = parent.childNodes;
       children.forEach(function (item) {
         var clone = item.cloneNode(true);
         newDOMel.appendChild(clone);
       });
-      // console.log("newDOMel",newDOMel);
-      // console.log("parent",parent);
-      // console.log("---------");
       parent.replaceWith(newDOMel);
     }
 
@@ -56,7 +47,7 @@ function roleReverser() {
     let src;
     if (srcEl) {
       src = srcEl;
-      scopeDoc=true;
+      scopeDoc = true;
     } else {
       src = tempDOMDumpingGround;
       tempDOMDumpingGround.innerHTML = txtSource.value;
@@ -66,10 +57,9 @@ function roleReverser() {
     let allElementsWithRolesCount = 0;
 
     function sweepThrough() {
-      let theadAlreadyOutput=false;
+      let theadAlreadyOutput = false;
       const elementsWithRoles = src.querySelectorAll('[role="button"],[role="link"],[role="heading"],[role="option"],[role="listbox"],[role="listitem"],[role="list"],[role="checkbox"],[role="checkbox"],[role="radio"],[role="textbox"],[role="main"],[role="navigation"],[role="img"],[role="image"],[role="table"],[role="rowgroup"],[role="rowgroup"],[role="row"],[role="columnheader"],[role="gridcell"]');
       const elementsWithRolesThatNeedSwapping = src.querySelectorAll('[role="button"]:not(button[role="button"]),[role="link"]:not(a[role="link"]),[role="heading"]:not(h1,h2,h3,h4,h5,h6)[aria-level],[role="option"]:not(option[role="option"]),[role="listbox"]:not(select[role="listbox"]),[role="listitem"]:not(li[role="listitem"]),[role="list"]:not(ul,ol),[role="checkbox"]:not(input),[role="checkbox"]:not(input),[role="radio"]:not(input),[role="textbox"]:not(input),[role="main"]:not(main),[role="navigation"]:not(nav),[role="img"]:not(img),[role="image"]:not(img),[role="table"]:not(table),[role="table"]:not(table),[role="rowgroup"]:not(thead),[role="rowgroup"]:not(tbody),[role="row"]:not(tr),[role="columnheader"]:not(th),[role="gridcell"]:not(td)');
-      // console.log(elementsWithRolesThatNeedSwapping);
       if (elementsWithRolesThatNeedSwapping.length > swappedElementCount) {
         swappedElementCount = elementsWithRolesThatNeedSwapping.length;
       }
@@ -113,6 +103,7 @@ function roleReverser() {
         if (elRole === "table") {
           newElementTagName = "table";
         }
+        //assume that first instance of rowgroup is a table header (thead), next one is table body (tbody)
         if (theadAlreadyOutput) {
           if (elRole === "rowgroup") {
             newElementTagName = "tbody";
@@ -138,7 +129,7 @@ function roleReverser() {
           elAttributes.push(thisElAttributes[i].name + "->" + thisElAttributes[i].value);
         }
         replaceElement(elementWithRoleThatNeedSwapping, newElementTagName, newElementType);
-        consoleStr+=elementWithRoleThatNeedSwapping.outerHTML + "\nChanges to <" + newElementTagName + ">\n----\n";
+        consoleStr += elementWithRoleThatNeedSwapping.outerHTML + "\nChanges to <" + newElementTagName + ">\n----\n";
       });
     }
     sweepThrough();
@@ -153,7 +144,7 @@ function roleReverser() {
     if (allElementsWithRolesCount > swappedElementCount) {
       strChangeSummary += "<li>" + (allElementsWithRolesCount - swappedElementCount) + " elements have (possibly superfluous) `role` attributes applied to native HTML elements.</li>";
     }
-    if (pointlessTabindexCount>0) {
+    if (pointlessTabindexCount > 0) {
       strChangeSummary += "<li>" + pointlessTabindexCount + " `tabindex` attributes removed from (now) natively focusable elements</li>";
     }
     if (!scopeDoc) {
@@ -165,7 +156,6 @@ function roleReverser() {
     console.log(consoleStr);
   }
 
-  const btnReverseRoles = document.querySelector("#btnReverseRoles");
   btnReverseRoles.addEventListener("click", (e) => {
     swapElements();
   });
