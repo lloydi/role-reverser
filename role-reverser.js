@@ -79,12 +79,6 @@ function roleReverser() {
         let elRole = elementWithRoleThatNeedSwapping.getAttribute("role");
         newElementTagName = elRole;
 
-
-linkWithLinkRole
-buttonWithButtonRole
-headingWithHeadingRole
-textInputWithTextboxRole
-
         if ((elRole === "link")&&(elementWithRoleThatNeedSwapping.tagName.toLowerCase()==="a")) {
           pointlessRolesCount++;
             if (!linkWithLinkRole) {
