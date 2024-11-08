@@ -4,46 +4,58 @@ function transformHTML() {
   const txtSource = document.querySelector("#txtSource");
   const txtAmended = document.querySelector("#txtAmended");
   const tempDOMDumpingGround = document.querySelector("#tempDOMDumpingGround");
-  const log = document.querySelector("#log");
   const btnReverseRoles = document.querySelector("#btnReverseRoles");
-  let scopeDoc = false;
-  let consoleStr = "";
-  let pointlessTabindexCount = 0;
-  let pointlessRoles = "";
-  let pointlessRolesCount = 0;
-  let buttonWithButtonRole=false;
-  let linkWithLinkRole=false;
-  let headingWithHeadingRole=false;
-  let textInputWithTextboxRole=false;
+  let removedRoleCount = 0;
+  let swappedElCount = 0;
+  // const log = document.querySelector("#log");
+  // let scopeDoc = false;
+  // let consoleStr = "";
+  // let pointlessTabindexCount = 0;
+  // let pointlessRoles = "";
+  // let pointlessRolesCount = 0;
+  // let buttonWithButtonRole=false;
+  // let linkWithLinkRole=false;
+  // let headingWithHeadingRole=false;
+  // let textInputWithTextboxRole=false;
 
   function transformNode(node) {
     // Only process elements with a role attribute
     if (node.nodeType === Node.ELEMENT_NODE && node.hasAttribute('role')) {
       const role = node.getAttribute('role');
 
-      // Change the element type to match the role name
-      const newElement = document.createElement(role);
+      if (role.toUpperCase()===node.tagName.toUpperCase()) {
+        // Same element/role. No cloning
+        removedRoleCount++;
+        node.removeAttribute("role");
+      } else {
+        // Different element/role. Clone it
+        swappedElCount++;
+        // Change the element type to match the role name
+        const newElement = document.createElement(role);
 
-      // Copy all attributes from the original element to the new element
-      Array.from(node.attributes).forEach(attr => {
-        // Skip the class attribute since we're using it as the new tag name
-        if (attr.name !== 'role') {
-          newElement.setAttribute(attr.name, attr.value);
+        // Copy all attributes from the original element to the new element
+        Array.from(node.attributes).forEach(attr => {
+          // Skip the class attribute since we're using it as the new tag name
+          if (attr.name !== 'role') {
+            newElement.setAttribute(attr.name, attr.value);
+          }
+        });
+
+        // Copy the child nodes to the new element
+        while (node.firstChild) {
+          newElement.appendChild(node.firstChild);
         }
-      });
 
-      // Copy the child nodes to the new element
-      while (node.firstChild) {
-        newElement.appendChild(node.firstChild);
+        // Replace the original node with the new element
+        node.parentNode.replaceChild(newElement, node);
+
+        // Recursively transform the children of the new element
+        for (let i = 0; i < newElement.childNodes.length; i++) {
+          transformNode(newElement.childNodes[i]);
+        }
+
       }
 
-      // Replace the original node with the new element
-      node.parentNode.replaceChild(newElement, node);
-
-      // Recursively transform the children of the new element
-      for (let i = 0; i < newElement.childNodes.length; i++) {
-        transformNode(newElement.childNodes[i]);
-      }
     } else {
       // Recursively transform the children of the current node
       for (let i = 0; i < node.childNodes.length; i++) {
@@ -56,6 +68,10 @@ function transformHTML() {
     tempDOMDumpingGround.innerHTML = txtSource.value;
     transformNode(tempDOMDumpingGround);
     txtAmended.value = tempDOMDumpingGround.innerHTML;
+    console.log("==================================================");
+    console.log("Swapped elements: " + swappedElCount);
+    console.log("Elements with superfluous `role` removed: " + removedRoleCount);
+    console.log("==================================================");
   }
 
   btnReverseRoles.addEventListener("click", (e) => {
