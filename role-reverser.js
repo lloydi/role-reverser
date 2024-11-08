@@ -178,12 +178,9 @@ function roleReverser() {
         consoleStr += elementWithRoleThatNeedSwapping.outerHTML + "\nChanges to <" + newElementTagName + ">\n----\n";
       });
     }
-    sweepThrough();
-    sweepThrough();
-    sweepThrough();
-    sweepThrough();
-    sweepThrough();
-    sweepThrough();
+    for (i=0;i<50;i++){
+      sweepThrough();
+    }
     let strChangeSummary = "";
     strChangeSummary += "<li>" + allElementsWithRolesCount + " elements in original markup have `role` attributes.</li>";
     strChangeSummary += "<li>" + swappedElementCount + " elements were swapped back to native HTML equivalents.</li>";
@@ -208,6 +205,7 @@ function roleReverser() {
   btnReverseRoles.addEventListener("click", (e) => {
     swapElements();
   });
+  swapElements();;
 }
 
 roleReverser();
