@@ -1,3 +1,10 @@
+// TODO
+// If the role matched is checkbox, radio or text, I need it to create an associated label, for example:
+// <input type="checkbox" id="ch1">
+// <label for="ch1">Check 1</label>
+// <input type="checkbox" id="ch2">
+// <label for="ch2">Check 2</label>
+
 function transformHTML() {
 
   console.clear();
@@ -58,6 +65,8 @@ function transformHTML() {
         if (mapping.type) {
             newElement.setAttribute('type', mapping.type);
         }
+
+
         // Copy all attributes from the original element to the new element
         Array.from(node.attributes).forEach(attr => {
           // Skip the class attribute since we're using it as the new tag name
@@ -97,6 +106,13 @@ function transformHTML() {
     console.log("Swapped elements: " + swappedElCount);
     console.log("Elements with superfluous `role` removed: " + removedRoleCount);
     console.log("==================================================");
+
+    let strChangeSummary = "";
+    strChangeSummary += "<li>" + swappedElCount + " elements were swapped back to native HTML equivalents.</li>";
+    strChangeSummary += "<li>" + removedRoleCount + " elements with superfluous `role` had the role removed.</li>";
+    strChangeSummary = "<ul>" + strChangeSummary + "</ul>";
+    log.innerHTML = strChangeSummary;
+
   }
 
   btnReverseRoles.addEventListener("click", (e) => {
