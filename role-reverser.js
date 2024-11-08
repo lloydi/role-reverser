@@ -24,6 +24,14 @@ function transformHTML() {
       // Change the element type to match the role name
       const newElement = document.createElement(role);
 
+      // Copy all attributes from the original element to the new element
+      Array.from(node.attributes).forEach(attr => {
+        // Skip the class attribute since we're using it as the new tag name
+        if (attr.name !== 'role') {
+          newElement.setAttribute(attr.name, attr.value);
+        }
+      });
+
       // Copy the child nodes to the new element
       while (node.firstChild) {
         newElement.appendChild(node.firstChild);
