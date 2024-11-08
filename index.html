@@ -19,72 +19,367 @@
     <div class="row">
       <div class="col col-6">
         <div><label for="txtSource">Source HTML:</label></div>
-        <textarea id="txtSource" cols="50" rows="20">&lt;div role="button"&gt;
-  button
-  &lt;div role="link"&gt;
-    link
-    &lt;div role="heading"&gt;
-      heading
-      &lt;div role="banner"&gt;
-        banner
-        &lt;div role="option"&gt;
-          option
-          &lt;div role="listbox"&gt;
-            listbox
-            &lt;div role="listitem"&gt;
-              listitem
-              &lt;div role="list"&gt;
-                list
-                &lt;div role="checkbox"&gt;
-                  checkbox
-                  &lt;div role="checkbox"&gt;
-                    checkbox
-                    &lt;div role="radio"&gt;
-                      radio
-                      &lt;div role="textbox"&gt;
-                        textbox
-                        &lt;div role="main"&gt;
-                          main
-                          &lt;div role="navigation"&gt;
-                            navigation
-                            &lt;div role="img"&gt;
-                              img
-                              &lt;div role="image"&gt;
-                                image
-                                &lt;div role="table"&gt;
-                                  table
-                                  &lt;div role="rowgroup"&gt;
-                                    rowgroup
-                                    &lt;div role="rowgroup"&gt;
-                                      rowgroup
-                                      &lt;div role="row"&gt;
-                                        row
-                                        &lt;div role="columnheader"&gt;
-                                          columnheader
-                                          &lt;div role="gridcell"&gt;
-                                            gridcell
-                                          &lt;/div&gt;
-                                        &lt;/div&gt;
-                                      &lt;/div&gt;
-                                    &lt;/div&gt;
-                                  &lt;/div&gt;
-                                &lt;/div&gt;
-                              &lt;/div&gt;
-                            &lt;/div&gt;
-                          &lt;/div&gt;
-                        &lt;/div&gt;
-                      &lt;/div&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
+        <textarea id="txtSource" cols="50" rows="20">&lt;div role="navigation" aria-label="Skip Link and Language Selector" id="controls" class="default-grid"&gt;
+    &lt;div role="list"&gt;
+      &lt;div role="listitem"&gt;&lt;a href="#main"&gt;Skip to Content&lt;/a&gt;&lt;/div&gt;
+      &lt;li class="opt"&gt;
+        &lt;a href="/WAI/meta/customize/"&gt;Change Text Size or Colors&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;li class="opt"&gt;
+        &lt;a href="/WAI/translations/"&gt;
+          All Translations 
+          &lt;svg focusable="false" aria-hidden="true" class="icon-translations "&gt;
+            &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-translations"&gt;&lt;/use&gt;
+          &lt;/svg&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div role="banner" id="site-header" class="default-grid with-gap"&gt;
+    &lt;div class="logos"&gt;
+      &lt;a lang="en" class="home w3c" href="https://www.w3.org/"&gt;
+        &lt;svg role="img" aria-label="W3C" viewBox="0 0 68 34" xmlns="http://www.w3.org/2000/svg"&gt;
+          &lt;g&gt;
+            &lt;path d="m16.117 1.006 5.759 19.58 5.759-19.58h4.17 11.444v1.946l-5.879 10.128c2.065.663 3.627 1.868 4.686 3.615 1.059 1.748 1.589 3.799 1.589 6.155 0 2.914-.775 5.363-2.324 7.348s-3.555 2.978-6.017 2.978c-1.854 0-3.469-.589-4.845-1.767-1.377-1.178-2.396-2.773-3.058-4.786l3.256-1.35c.477 1.218 1.106 2.178 1.887 2.879.781.702 1.701 1.052 2.76 1.052 1.112 0 2.052-.622 2.82-1.866.768-1.245 1.152-2.74 1.152-4.489 0-1.933-.411-3.429-1.231-4.488-.954-1.244-2.45-1.867-4.489-1.867h-1.588v-1.906l5.56-9.612h-6.712l-.382.65-8.163 27.548h-.397l-5.958-19.937-5.957 19.937h-.397l-9.53-32.168h4.17l5.759 19.58 3.892-13.185-1.906-6.395z"/&gt;
+            &lt;path d="m64.92 1.006c-.819 0-1.554.295-2.111.861-.591.6-.92 1.376-.92 2.178s.313 1.545.887 2.128c.583.591 1.334.912 2.145.912.793 0 1.562-.321 2.161-.903.574-.557.887-1.3.887-2.136 0-.811-.321-1.57-.878-2.136-.584-.592-1.344-.904-2.171-.904zm2.643 3.065c0 .701-.271 1.351-.768 1.832-.524.507-1.174.777-1.892.777-.675 0-1.342-.278-1.84-.785s-.777-1.157-.777-1.849.287-1.368.802-1.891c.481-.49 1.131-.751 1.84-.751.726 0 1.376.271 1.883.785.49.489.752 1.147.752 1.882zm-2.559-1.807h-1.3v3.445h.65v-1.469h.642l.701 1.469h.726l-.769-1.57c.498-.102.785-.439.785-.929 0-.625-.472-.946-1.435-.946zm-.118.422c.608 0 .886.169.886.591 0 .405-.278.549-.87.549h-.549v-1.14z"/&gt;
+            &lt;path d="m59.807.825.676 4.107-2.391 4.575s-.918-1.941-2.443-3.015c-1.285-.905-2.122-1.102-3.431-.832-1.681.347-3.587 2.357-4.419 4.835-.995 2.965-1.005 4.4-1.04 5.718-.056 2.113.277 3.362.277 3.362s-1.452-2.686-1.438-6.62c.009-2.808.451-5.354 1.75-7.867 1.143-2.209 2.842-3.535 4.35-3.691 1.559-.161 2.791.59 3.743 1.403 1 .854 2.01 2.721 2.01 2.721z"/&gt;
+            &lt;path d="m60.102 24.063s-1.057 1.889-1.715 2.617c-.659.728-1.837 2.01-3.292 2.651s-2.218.762-3.656.624c-1.437-.138-2.772-.97-3.24-1.317s-1.664-1.369-2.34-2.322-1.733-2.859-1.733-2.859.589 1.91.958 2.721c.212.467.864 1.894 1.789 3.136.863 1.159 2.539 3.154 5.086 3.604 2.547.451 4.297-.693 4.73-.97s1.346-1.042 1.924-1.66c.603-.645 1.174-1.468 1.49-1.962.231-.36.607-1.092.607-1.092z"/&gt;
+          &lt;/g&gt;
+        &lt;/svg&gt;
+      &lt;/a&gt;
+      &lt;a lang="en" class="home" href="/WAI/"&gt;
+      &lt;span class="wai"&gt;&lt;span class="wa"&gt;Web Accessibility&lt;/span&gt; &lt;span class="i"&gt;&lt;span class="initieative"&gt;Initiative&lt;/span&gt; &lt;span&gt;WAI&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;div class="claim"&gt;
+        &lt;span&gt;Strategies, standards, resources to make the Web accessible to people with disabilities&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;button class="button button-menu" aria-haspopup="true" aria-expanded="false" id="openmenu"&gt;
+        &lt;span&gt;
+          &lt;svg focusable="false" aria-hidden="true" class="icon-menu "&gt;
+            &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-menu"&gt;&lt;/use&gt;
+          &lt;/svg&gt;
+          Menu
+        &lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="navigations"&gt;
+      &lt;div role="navigation" class="metanav" aria-label="Meta & Search" lang="en"&gt;
+        &lt;div role="list"&gt;
+          &lt;div role="listitem"&gt;&lt;a href="/WAI/about/participating/"&gt;Get Involved&lt;/a&gt;&lt;/div&gt;
+          &lt;div role="listitem"&gt;&lt;a href="/WAI/about/"&gt;About W3C WAI&lt;/a&gt;&lt;/div&gt;
+          &lt;div role="listitem"&gt;
+            &lt;form action="/WAI/search/" role="search"&gt;
+              &lt;div&gt;
+                &lt;label for="header-search"&gt;
+                &lt;span class="visuallyhidden"&gt;Search:&lt;/span&gt;
+                &lt;input id="header-search" type="search" name="q" placeholder="Search" aria-label="Search"&gt;
+                &lt;/label&gt;
+                &lt;button class="button button-icon button-nobg button-noborder"&gt;
+                  &lt;span&gt;
+                    &lt;svg focusable="false" aria-label="Submit Search" class="icon-search "&gt;
+                      &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-search"&gt;&lt;/use&gt;
+                    &lt;/svg&gt;
+                  &lt;/span&gt;
+                &lt;/button&gt;
               &lt;/div&gt;
-            &lt;/div&gt;
+            &lt;/form&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</textarea>  
+  &lt;div role="navigation" class="mainnav" aria-label="Main" lang="en"&gt;
+    &lt;div role="list"&gt;
+      &lt;div role="listitem"&gt;&lt;a lang="en" href="/WAI/fundamentals/"&gt;&lt;span&gt;Accessibility Fundamentals&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div role="listitem"&gt;&lt;a lang="en" href="/WAI/planning/"&gt;&lt;span&gt;Planning & Policies&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div role="listitem"&gt;&lt;a lang="en" href="/WAI/design-develop/"&gt;&lt;span&gt;Design & Develop&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div role="listitem"&gt;&lt;a lang="en" href="/WAI/test-evaluate/"&gt;&lt;span&gt;Test & Evaluate&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div role="listitem"&gt;&lt;a lang="en" href="/WAI/teach-advocate/"&gt;&lt;span&gt;Teach & Advocate&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div role="listitem"&gt;&lt;a lang="en" href="/WAI/standards-guidelines/"&gt;&lt;span&gt;Standards/&lt;wbr&gt;Guidelines&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;main id="main" lang="en"&gt;
+    &lt;h1 role="heading" class="visuallyhidden"&gt;W3C Web Accessibility Initiative Home&lt;/h1&gt;
+    &lt;section class="default-grid teaser making-web-accessible" aria-labelledby="mwa-title"&gt;
+      &lt;div role="banner" class="inner teaser-h"&gt;
+        &lt;h2 role="heading" id="mwa-title"&gt;
+          &lt;span class="title"&gt;Making the Web Accessible&lt;/span&gt;
+        &lt;/h2&gt;
+        &lt;p class="subtitle"&gt;Strategies, standards, and supporting resources to help you make the Web more accessible to people with disabilities.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="inner grid-3"&gt;
+        &lt;div class="col1 making-web-accessible-box"&gt;
+          &lt;h3 role="heading"&gt;
+            &lt;svg focusable="false" aria-hidden="true" class="icon-hp-book mwa-icon mwa-icon-book"&gt;
+              &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-hp-book"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+            W3C
+          &lt;/h3&gt;
+          &lt;p&gt;The World Wide Web Consortium (W3C) develops international standards for the Web: HTML, CSS, and many more.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="col2 making-web-accessible-box"&gt;
+          &lt;h3 role="heading"&gt;
+            &lt;svg focusable="false" aria-hidden="true" class="icon-hp-tools mwa-icon"&gt;
+              &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-hp-tools"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+            WAI
+          &lt;/h3&gt;
+          &lt;p&gt;The W3C Web Accessibility Initiative (WAI) develops standards and support materials to help you understand and implement accessibility.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="col3 making-web-accessible-box"&gt;
+          &lt;h3 role="heading"&gt;
+            &lt;svg focusable="false" aria-hidden="true" class="icon-hp-computer mwa-icon mwa-icon-computer"&gt;
+              &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-hp-computer"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+            You
+          &lt;/h3&gt;
+          &lt;p&gt;You can use W3C WAI resources to make your websites, applications, and other digital creations more accessible and usable to everyone.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="inner hidesection"&gt;
+        &lt;button class="showhidebutton" data-target=".making-web-accessible .inner:not(.hidesection)" aria-expanded="true" data-showhidebuttonid="homepage-making-web-accessible" data-showtext="Show information about W3C, WAI, You" data-hidetext="Hide Section"&gt;Hide Section&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;div class="white-bg grid-five-three"&gt;
+      &lt;div class="col1 grid-line-right"&gt;
+        &lt;section class="teaser news-teaser" aria-labelledby="news-teaser-title"&gt;
+          &lt;div role="banner" class="teaser-h"&gt;
+            &lt;h2 role="heading" id="news-teaser-title"&gt;
+              &lt;span class="subtitle"&gt; &lt;/span&gt;
+              &lt;span class="title"&gt;News&lt;/span&gt;
+            &lt;/h2&gt;
+          &lt;/div&gt;
+          &lt;h3 role="heading"&gt;Current Work&lt;/h3&gt;
+          &lt;p&gt;&lt;small&gt;(updated monthly)&lt;/small&gt;&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;See &lt;a href="/WAI/update/"&gt;What We're Working On – Accessibility Activities and Publications&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+          &lt;article class="news-teaser"&gt;
+            &lt;h3 role="heading"&gt;WCAG2ICT Note Published&lt;/h3&gt;
+            &lt;p&gt;&lt;small&gt;(2024-Oct-08)&lt;/small&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;a href="https://www.w3.org/TR/wcag2ict/"&gt;Guidance on Applying WCAG 2 to Non-Web Information and Communications Technologies (WCAG2ICT)&lt;/a&gt; is a completed W3C Group Note. WCAG2ICT describes how Web Content Accessibility Guidelines (WCAG) principles, guidelines, and success criteria can be applied to non-web information and communications technologies (ICT), specifically to non-web documents and software. The document includes guidance for WCAG 2.0, 2.1, and 2.2 success criteria and glossary terms. WCAG2ICT has been a key resource for including WCAG in ICT accessibility regulation, legislation, and standards around the world. This update facilitates further adoption of WCAG 2.1 and WCAG 2.2 in non-web contexts. For an introduction, see: &lt;a href="https://www.w3.org/WAI/standards-guidelines/wcag/non-web-ict/"&gt;WCAG2ICT Overview&lt;/a&gt;.&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article class="news-teaser"&gt;
+            &lt;h3 role="heading"&gt;For Wide Review: Collaboration Tools Accessibility User Requirements&lt;/h3&gt;
+            &lt;p&gt;&lt;small&gt;(2024-Jul-10)&lt;/small&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;a href="https://www.w3.org/TR/ctaur/"&gt;Collaboration Tools Accessibility User Requirements&lt;/a&gt; is ready for review. The document covers accessibility user needs, requirements, and scenarios for collaborative content creation and development tools. The solutions identified in this document are intended to influence the evolution of future accessibility guidelines, technical specifications, or features of collaboration tools and assistive technologies. They are also relevant to software developers who contribute to developing the collaborative experience. Questions for this review are in &lt;a href="https://lists.w3.org/Archives/Public/public-wai-announce/2024JulSep/0001.html"&gt;e-mail for CTAUR review&lt;/a&gt;. Please send any comments by 30 September 2024.&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article class="news-teaser"&gt;
+            &lt;h3 role="heading"&gt;For Wide Review: Guidance on Applying WCAG 2 to Non-Web ICT (WCAG2ICT)&lt;/h3&gt;
+            &lt;p&gt;&lt;small&gt;(2024-Jul-02)&lt;/small&gt;&lt;/p&gt;
+            &lt;p&gt;WCAG2ICT is &lt;a href="https://www.w3.org/TR/wcag2ict-22/"&gt;Guidance on Applying WCAG 2 to Non-Web Information and Communications Technologies (WCAG2ICT)&lt;/a&gt;, including documents and software. The Draft is ready for final review before we publish it as a completed W3C Group Note. For an introduction, see the &lt;a href="https://www.w3.org/WAI/standards-guidelines/wcag/non-web-ict/"&gt;WCAG2ICT Overview&lt;/a&gt;. Please submit any comments by 6 August 2024.&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article class="news-teaser"&gt;
+            &lt;h3 role="heading"&gt;Updated Resource: How People with Disabilities Use the Web&lt;/h3&gt;
+            &lt;p&gt;&lt;small&gt;(2024-Jun-24)&lt;/small&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;a href="https://www.w3.org/WAI/people-use-web/"&gt;How People with Disabilities Use the Web&lt;/a&gt; is updated with new user stories (personas) and new videos highlighting “Accessibility: It’s about people”. It describes tools and approaches that disabled people use to interact with technology and it covers barriers that people experience because of inaccessible digital technology. The resource helps developers, designers, content creators, and others understand the reasons behind creating accessible digital products. To quote the new videos: Whatever your role, “You can help make technology accessible to me.”&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article class="news-teaser"&gt;
+            &lt;h3 role="heading"&gt;For Review: ACT Rules Format 1.1 - First Public Working Draft&lt;/h3&gt;
+            &lt;p&gt;&lt;small&gt;(2024-Jun-18)&lt;/small&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;a href="https://www.w3.org/TR/act-rules-format-1.1/"&gt;Accessibility Conformance Testing (ACT) Rules Format 1.1&lt;/a&gt; Working Draft is available for review. The ACT Rules Format defines a format for writing accessibility test rules. It helps developers of automated testing tools and manual testing methodologies to write, share, and implement test rules. The test rules contribute to consistent testing for accessibility standards compliance. Changes from ACT Rules Format 1.0 include: new secondary accessibility requirements and allowing subjective applicability statements. For an introduction to ACT resources, see the &lt;a href="https://www.w3.org/WAI/standards-guidelines/act/"&gt;ACT Overview&lt;/a&gt;. Please submit any comments by 18 August 2024.&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article class="news-teaser"&gt;
+            &lt;h3 role="heading"&gt;WCAG 2.2 in Dutch: Authorized Translation Published&lt;/h3&gt;
+            &lt;p&gt;&lt;small&gt;(2024-Jun-13)&lt;/small&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;a href="https://www.w3.org/Translations/WCAG22-nl/"&gt;Richtlijnen voor Toegankelijkheid van Webcontent (WCAG) 2.2&lt;/a&gt;, the Dutch Authorized Translation of &lt;a href="https://www.w3.org/WAI/standards-guidelines/wcag/"&gt;Web Content Accessibility Guidelines (WCAG) 2.2&lt;/a&gt;, is now available, following completion of the &lt;a href="https://www.w3.org/2005/02/TranslationPolicy"&gt;W3C Authorized Translations process&lt;/a&gt;. Other translations of WAI resources are listed in &lt;a href="https://www.w3.org/WAI/translations/"&gt;All WAI Translations&lt;/a&gt;. WAI encourages translations in all languages. If you might be interesting in translating resources, see &lt;a href="https://www.w3.org/WAI/about/translating/"&gt;Translating WAI Resources&lt;/a&gt;. Thank you to all who contribute to translations.&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article class="news-teaser"&gt;
+            &lt;h3 role="heading"&gt;WCAG 2.2 in Catalan: Authorized Translation Published&lt;/h3&gt;
+            &lt;p&gt;&lt;small&gt;(2024-May-22)&lt;/small&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;a href="https://www.w3.org/Translations/WCAG22-ca/"&gt;Directrius per a l’accessibilitat del contingut web (WCAG) 2.2&lt;/a&gt;, the Catalan Authorized Translation of &lt;a href="https://www.w3.org/WAI/standards-guidelines/wcag/"&gt;Web Content Accessibility Guidelines (WCAG) 2.2&lt;/a&gt;, is now available, following completion of the &lt;a href="https://www.w3.org/2005/02/TranslationPolicy"&gt;W3C Authorized Translations process&lt;/a&gt;. Other translations of WAI resources are listed in &lt;a href="https://www.w3.org/WAI/translations/"&gt;All WAI Translations&lt;/a&gt;. WAI encourages translations in all languages. If you might be interesting in translating resources, see &lt;a href="https://www.w3.org/WAI/about/translating/"&gt;Translating WAI Resources&lt;/a&gt;. Thank you to all who contribute to translations.&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;a href="/WAI/news/" class="button button-more"&gt;&lt;span&gt;See All News&lt;/span&gt;&lt;/a&gt; &lt;a href="/WAI/news/subscribe/" class="button button-more button-secondary"&gt;&lt;span&gt;Subscribe to WAI News&lt;/span&gt;&lt;/a&gt;
+        &lt;/section&gt;
+      &lt;/div&gt;
+      &lt;div class="col2"&gt;
+        &lt;section class="teaser audiences-inline" aria-labelledby="audiences-title"&gt;
+          &lt;div role="banner" class="teaser-h"&gt;
+            &lt;h2 role="heading" id="audiences-title"&gt;
+              &lt;span class="subtitle"&gt;See what we have for you: &lt;/span&gt;
+              &lt;span class="title"&gt;Get Resources for…&lt;/span&gt;
+            &lt;/h2&gt;
+          &lt;/div&gt;
+          &lt;div role="list" class="two small columns"&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/new/"&gt;Getting Started&lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/writers/"&gt;Content Writers&lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/designers/"&gt;Designers&lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/developers/"&gt;Developers&lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/testers/"&gt; Evaluators, Testers &lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/managers/"&gt;Managers&lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/policy-makers/"&gt;Policy Makers&lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/trainers/"&gt; Trainers, Educators &lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/users/"&gt;Web Users, People with Disabilities, Advocates&lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/resources/"&gt;Everyone (All WAI Resources)&lt;/a&gt;&lt;/div&gt;
+            &lt;div role="listitem"&gt;&lt;a href="/WAI/translations/"&gt;Other Languages&lt;/a&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;section class="teaser resource-inline" aria-labelledby="course-title"&gt;
+          &lt;a class="teaser-c stealthy-link col1" href="https://www.w3.org/WAI/fundamentals/foundations-course/"&gt;
+            &lt;div role="banner" class="teaser-h"&gt;
+              &lt;h2 role="heading" id="course-title"&gt;
+                &lt;span class="subtitle"&gt;Training Course:&lt;/span&gt;
+                &lt;span class="title"&gt;Digital Accessibility Foundations&lt;/span&gt;
+              &lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;img src="/WAI/content-images/news/2019-12-03-w3cx-accessibility-intro.jpg" alt="" /&gt;
+            &lt;p&gt;The free "Introduction to Web Accessibility" online course provides the foundation you need to make your digital technology accessible. It's designed for:&lt;/p&gt;
+            &lt;div role="list"&gt;
+              &lt;div role="listitem"&gt;technical and non-technical learners&lt;/div&gt;
+              &lt;div role="listitem"&gt;developers, designers, ux, writers, managers, advocates&lt;/div&gt;
+              &lt;div role="listitem"&gt;professionals, instructors, students&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;span class="button"&gt;About the Free Online Course&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/a&gt;
+        &lt;/section&gt;
+        &lt;section class="teaser media-inline" aria-labelledby="perspectives-title"&gt;
+          &lt;div role="banner" class="teaser-h"&gt;
+            &lt;h2 role="heading" id="perspectives-title"&gt;
+              &lt;span class="subtitle"&gt;Web Accessibility Perspectives: &lt;/span&gt;
+              &lt;span class="title"&gt;Video Captions&lt;/span&gt;
+            &lt;/h2&gt;
+          &lt;/div&gt;
+          &lt;div class="media-wrapper"&gt;
+            &lt;iframe title="Video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/iWO5N3n1DXU" allowfullscreen=""&gt;&lt;/iframe&gt;
+          &lt;/div&gt;
+          &lt;p&gt;Captions are the audio information in text that is synchronized with the audio and visual content. Captions are called "subtitles" in some regions. &lt;/p&gt;
+          &lt;p&gt;Video Captions are essential for people with disabilities and benefit everyone in a variety of situations.&lt;/p&gt;
+          &lt;div class="button-group"&gt;
+            &lt;a class="button button-more" href="/WAI/perspective-videos/captions/"&gt;&lt;span&gt;More About Video Captions&lt;/span&gt;&lt;/a&gt;
+            &lt;a class="button button-more button-secondary" href="/WAI/perspective-videos/"&gt;&lt;span&gt;See All Perspectives Videos&lt;/span&gt;&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;section class="teaser resource-inline" aria-labelledby="media-title"&gt;
+          &lt;a class="teaser-c stealthy-link col1" href="/WAI/media/av/"&gt;
+            &lt;div role="banner" class="teaser-h"&gt;
+              &lt;h2 role="heading" id="media-title"&gt;
+                &lt;span class="subtitle"&gt;Featured Resource: &lt;/span&gt;
+                &lt;span class="title"&gt;Making Audio and Video Media Accessible&lt;/span&gt;
+              &lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;img src="/WAI/content-images/news/2019-09-10-making-audio-and-video-media-accessible.png" alt="" /&gt;
+            &lt;p&gt;This media resource helps you understand and create captions/subtitles, audio description of visual information, descriptive transcripts, and sign language for media. It introduces user experiences and benefits to organizations.&lt;/p&gt;
+            &lt;div&gt;
+              &lt;span class="button"&gt;Making Audio and Video Media Accessible&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/a&gt;
+        &lt;/section&gt;
+        &lt;!--
+          &lt;section class="teaser resource-inline" aria-labelledby="translations-title"&gt;
+            &lt;a class="teaser-c stealthy-link col1" href="/WAI/translations/"&gt;
+              &lt;div role="banner" class="teaser-h"&gt;
+                &lt;h2 role="heading" id="translations-title"&gt;
+                  &lt;span class="subtitle"&gt;Feature: &lt;/span&gt;
+                  &lt;span class="title"&gt;Translations&lt;/span&gt;
+                &lt;/h2&gt;
+              &lt;/div&gt;
+              &lt;img src="/WAI/content-images/social-translations.png" alt=""&gt;
+              &lt;p&gt;WAI accessibility resources are available in over 20 languages, with more coming. Translations are linked from the top of WAI website pages.&lt;/p&gt;
+              &lt;div&gt;
+                &lt;span class="button"&gt;All WAI Translations&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/section&gt;
+          --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="default-grid teaser teaser-sponsors"&gt;
+      &lt;div class="inner"&gt;
+        &lt;div role="banner" class="teaser-h"&gt;
+          &lt;h2 role="heading" class="title"&gt;Sponsors and Funders&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;p&gt;WAI is supported in part by the following organizations. Thank you!&lt;/p&gt;
+        &lt;div role="list"&gt;
+          &lt;div role="listitem"&gt;&lt;span&gt;&lt;a href="https://www.hp.com"&gt;HP&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+          &lt;div role="listitem"&gt;&lt;span&gt;&lt;a href="http://www.ibm.com/able"&gt;IBM Corporation&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+          &lt;div role="listitem"&gt;&lt;span&gt;European Commission (&lt;abbr&gt;EC&lt;/abbr&gt;) &lt;a href="https://ec.europa.eu/programmes/horizon2020/"&gt;Horizon 2020&lt;/a&gt; — 822245 (&lt;a href="https://www.w3.org/WAI/about/projects/wai-guide/"&gt;WAI-Guide Project&lt;/a&gt;), 101004794 (&lt;a href="https://www.w3.org/WAI/about/projects/wai-coop/"&gt;WAI-CooP Project&lt;/a&gt;)&lt;/span&gt;&lt;/div&gt;
+          &lt;div role="listitem"&gt;&lt;span&gt;&lt;a href="https://www.fordfoundation.org/"&gt;Ford Foundation&lt;/a&gt;, &lt;a href="https://www.fordfoundation.org/work/challenging-inequality/technology-and-society/"&gt;Technology and Society Program&lt;/a&gt; (&lt;a href="https://www.w3.org/WAI/about/projects/wai-core-ford/"&gt;WAI-Core Ford Project&lt;/a&gt;)&lt;/span&gt;&lt;/div&gt;
+          &lt;div role="listitem"&gt;&lt;span&gt;US Department of Health and Human Services, &lt;a href="https://www.acl.gov/about-acl/about-national-institute-disability-independent-living-and-rehabilitation-research"&gt;National Institute for Disability, Independent Living and Rehabilitation Research&lt;/a&gt;, contract HHSP23301500054 (&lt;a href="https://www.w3.org/WAI/Core2015/"&gt;WAI-Core 2015, 2022 Project&lt;/a&gt;)&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p&gt;WAI welcomes &lt;a href="/WAI/about/sponsoring/"&gt;additional sponsors&lt;/a&gt;.&lt;/p&gt;
+        &lt;br /&gt;
+        &lt;p id="netlify" style="font-size: small"&gt;
+          Previews of this site are powered by &lt;a href="https://www.netlify.com/" style="color:black"&gt;Netlify&lt;/a&gt;. &lt;!-- &lt;a rel="me" href="https://w3c.social/@wai"&gt;Mastodon&lt;/a&gt; --&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a class="button button-backtotop" href="#top"&gt;
+      &lt;span&gt;
+        &lt;svg focusable="false" aria-hidden="true" class="icon-arrow-up "&gt;
+          &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-arrow-up"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+        Back to Top
+      &lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/main&gt;
+  &lt;footer class="site-footer grid-4q" aria-label="Site"&gt;
+    &lt;div class="q1-start q3-end about"&gt;
+      &lt;div&gt;
+        &lt;p&gt;&lt;a class="largelink" href="https://www.w3.org/WAI/" lang="en" dir="auto" translate="no"&gt;W3C Web Accessibility Initiative (WAI)&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;Strategies, standards, and supporting resources to make the Web accessible to people with disabilities.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="social" lang="en" dir="auto" translate="no"&gt;
+        &lt;div role="list"&gt;
+          &lt;div role="listitem"&gt;
+            &lt;a href="https://w3c.social/@wai"&gt;
+              &lt;svg focusable="false" aria-hidden="true" class="icon-mastodon "&gt;
+                &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-mastodon"&gt;&lt;/use&gt;
+              &lt;/svg&gt;
+              Mastodon
+            &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div role="listitem"&gt;
+            &lt;a href="https://www.linkedin.com/company/w3c-wai/"&gt;
+              &lt;svg focusable="false" aria-hidden="true" class="icon-linkedin "&gt;
+                &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-linkedin"&gt;&lt;/use&gt;
+              &lt;/svg&gt;
+              LinkedIn
+            &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div role="listitem"&gt;
+            &lt;a href="https://www.w3.org/WAI/feed.xml"&gt;
+              &lt;svg focusable="false" aria-hidden="true" class="icon-rss "&gt;
+                &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-rss"&gt;&lt;/use&gt;
+              &lt;/svg&gt;
+              Feed
+            &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div role="listitem"&gt;
+            &lt;a href="https://www.youtube.com/channel/UCU6ljj3m1fglIPjSjs2DpRA/playlists/"&gt;
+              &lt;svg focusable="false" aria-hidden="true" class="icon-youtube "&gt;
+                &lt;use xlink:href="/WAI/assets/images/icons.svg#icon-youtube"&gt;&lt;/use&gt;
+              &lt;/svg&gt;
+              YouTube
+            &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div role="listitem"&gt;&lt;a href="https://www.w3.org/WAI/news/subscribe/" class="button"&gt;Get News in Email&lt;/a&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div lang="en" dir="auto"  translate="no"&gt;
+        &lt;p&gt;Copyright © 2024 World Wide Web Consortium (&lt;a href="https://www.w3.org/"&gt;W3C&lt;/a&gt;&lt;sup&gt;®&lt;/sup&gt;). See &lt;a href="/WAI/about/using-wai-material/"&gt;Permission to Use WAI Material&lt;/a&gt;.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div lang="en" dir="auto"  translate="no" class="q4-start q4-end"&gt;
+      &lt;div role="list" style="margin-bottom:0"&gt;
+        &lt;div role="listitem"&gt;&lt;a href="/WAI/about/contacting/"&gt;Contact WAI&lt;/a&gt;&lt;/div&gt;
+        &lt;div role="listitem"&gt;&lt;a href="/WAI/sitemap/"&gt;Site Map&lt;/a&gt;&lt;/div&gt;
+        &lt;div role="listitem"&gt;&lt;a href="/WAI/news/"&gt;News&lt;/a&gt;&lt;/div&gt;
+        &lt;div role="listitem"&gt;&lt;a href="/WAI/sitemap/#archive"&gt;Archive&lt;/a&gt;&lt;/div&gt;
+        &lt;div role="listitem"&gt;&lt;a href="/WAI/about/accessibility-statement/"&gt;Accessibility Statement&lt;/a&gt;&lt;/div&gt;
+        &lt;div role="listitem"&gt;&lt;a href="/WAI/translations/"&gt; Translations&lt;/a&gt;&lt;/div&gt;
+        &lt;div role="listitem"&gt;&lt;a href="/WAI/roles/"&gt;Resources for Roles&lt;/a&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+  &lt;!-- Details4Everybody --&gt;
+  &lt;script src="/WAI/assets/scripts/details4everybody.js?1731036558659470431"&gt;&lt;/script&gt;
+  &lt;!-- SVG4Everybody --&gt;
+  &lt;script src="/WAI/assets/scripts/svg4everybody.js?1731036558659470431"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    svg4everybody();
+  &lt;/script&gt;&lt;script&gt;
+    var translationStrings = {};
+  &lt;/script&gt;</textarea>  
         <div><button type="button" class="wide" id="btnReverseRoles"><span aria-hidden="true">🔄 </span>Reverse roles</button></div>
       </div>
       <div class="col col-6">
