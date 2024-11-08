@@ -30,9 +30,34 @@ function transformHTML() {
       } else {
         // Different element/role. Clone it
         swappedElCount++;
-        // Change the element type to match the role name
-        const newElement = document.createElement(role);
+        // Change the element type to match the role
 
+        const roleToElementMap = {
+          // Basic elements from previous example
+          link: { element: 'a' },
+          banner: { element: 'header' },
+          listitem: { element: 'li' },
+          list: { element: 'ul' },
+          navigation: { element: 'nav' },
+          columnheader: { element: 'th' },
+          gridcell: { element: 'td' },
+          
+          // Input elements with types
+          checkbox: { element: 'input', type: 'checkbox' },
+          radio: { element: 'input', type: 'radio' },
+          textbox: { element: 'input', type: 'text' }
+        };
+
+        // Get the element and type in one lookup
+        const mapping = roleToElementMap[role] || { element: 'div' };
+        const newElTagName = mapping.element;
+        const elType = mapping.type; // Will be undefined for non-input elements
+        const newElement = document.createElement(newElTagName);
+
+        // If the mapping has a type property, add it to the element
+        if (mapping.type) {
+            newElement.setAttribute('type', mapping.type);
+        }
         // Copy all attributes from the original element to the new element
         Array.from(node.attributes).forEach(attr => {
           // Skip the class attribute since we're using it as the new tag name
