@@ -38,9 +38,9 @@ function transformHTML() {
           gridcell: { element: 'td' },
           
           // Input elements with types
-          checkbox: { element: 'input', type: 'checkbox', needsLabel: true },
-          radio: { element: 'input', type: 'radio', needsLabel: true },
-          textbox: { element: 'input', type: 'text', needsLabel: true }
+          checkbox: { element: 'input', type: 'checkbox', needsLabel: true, labelAfter: true },
+          radio: { element: 'input', type: 'radio', needsLabel: true, labelAfter: true },
+          textbox: { element: 'input', type: 'text', needsLabel: true, labelAfter: false }
         };
 
         // Get the element and type in one lookup
@@ -48,6 +48,7 @@ function transformHTML() {
         const newElTagName = mapping.element;
         const elType = mapping.type;
         const needsLabel = mapping.needsLabel;
+        const labelAfter = mapping.labelAfter;
         
         // Create wrapper div for input + label if needed
         const wrapper = needsLabel ? document.createElement('div') : null;
@@ -71,9 +72,14 @@ function transformHTML() {
           label.setAttribute('for', id);
           label.textContent = originalText || `${role} ${labelCounter}`;
           
-          // Add input and label to wrapper
-          wrapper.appendChild(newElement);
-          wrapper.appendChild(label);
+          // Add input and label to wrapper in the correct order
+          if (labelAfter) {
+            wrapper.appendChild(newElement);
+            wrapper.appendChild(label);
+          } else {
+            wrapper.appendChild(label);
+            wrapper.appendChild(newElement);
+          }
           
           // Replace the original node with the wrapper
           node.parentNode.replaceChild(wrapper, node);
