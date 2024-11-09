@@ -113,14 +113,23 @@ function transformHTML() {
     }
   }
 
-  function swapElements() {
-    tempDOMDumpingGround.innerHTML = txtSource.value;
-    transformNode(tempDOMDumpingGround);
-    txtAmended.value = tempDOMDumpingGround.innerHTML;
+  function logResults(){
     console.log("==================================================");
     console.log("Swapped elements: " + swappedElCount);
     console.log("Elements with superfluous `role` removed: " + removedRoleCount);
     console.log("==================================================");
+    const log = document.querySelector("#log");
+    let strChangeSummary = "";
+    strChangeSummary += "<li>Swapped elements: " + swappedElCount + "</li>";
+    strChangeSummary += "<li>Elements with superfluous `role` removed: " + removedRoleCount + "</li>";
+    strChangeSummary = "<ul>" + strChangeSummary + "</ul>";
+    log.innerHTML = strChangeSummary;
+  }
+  function swapElements() {
+    tempDOMDumpingGround.innerHTML = txtSource.value;
+    transformNode(tempDOMDumpingGround);
+    txtAmended.value = tempDOMDumpingGround.innerHTML;
+    logResults();
   }
 
   btnReverseRoles.addEventListener("click", (e) => {
