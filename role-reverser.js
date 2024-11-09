@@ -1,9 +1,12 @@
 // TODO
+
 // If the role matched is checkbox, radio or text, I need it to create an associated label, for example:
 // <input type="checkbox" id="ch1">
 // <label for="ch1">Check 1</label>
 // <input type="checkbox" id="ch2">
 // <label for="ch2">Check 2</label>
+
+// Handle heading levels
 
 function transformHTML() {
 
