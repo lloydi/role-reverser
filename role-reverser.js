@@ -11,7 +11,6 @@ function transformHTML() {
   let removedRoleCount = 0;
   let swappedElCount = 0;
   let labelCounter = 0;
-  let stripRole = false;
 
   function transformNode(node) {
     // Only process elements with a role attribute
@@ -19,41 +18,42 @@ function transformHTML() {
     if (node.nodeType === Node.ELEMENT_NODE && node.hasAttribute('role')) {
       const role = node.getAttribute('role');
       
-      // Capture the text content early
       const originalText = node.textContent.trim();
+      const ELEMENT_ROLE_MAPPINGS = {
+        td: ['cell', 'gridcell'],
+        th: ['columnheader', 'rowheader'],
+        dfn: ['definition', 'term'],
+        ul: ['list'],
+        ol: ['list'],
+        li: ['listitem'],
+        tr: ['row'],
+        thead: ['rowgroup'],
+        tbody: ['rowgroup'],
+        tfoot: ['rowgroup'],
+        hr: ['separator'],
+        header: ['banner'],
+        aside: ['complementary'],
+        footer: ['contentinfo'],
+        nav: ['navigation'],
+        section: ['region']
+      };
 
-      if (role.toLowerCase() === node.tagName.toLowerCase()) {
-        // Same element/role. No cloning
-        stripRole = true;
+      function isEquivalentElementRole(node, role) {
+        const nodeTag = node.tagName.toLowerCase();
+        const normalizedRole = role.toLowerCase();
+        
+        // Check if the element and role are exactly the same
+        if (nodeTag === normalizedRole) {
+          return true;
+        }
+        
+        // Check if the element has equivalent roles
+        const equivalentRoles = ELEMENT_ROLE_MAPPINGS[nodeTag];
+        return equivalentRoles?.includes(normalizedRole) ?? false;
       }
 
-      if 
-      (
-      ((node.tagName.toLowerCase() === "td")&&(role.toLowerCase() === "cell"))||
-      ((node.tagName.toLowerCase() === "td")&&(role.toLowerCase() === "gridcell"))||
-      ((node.tagName.toLowerCase() === "th")&&(role.toLowerCase() === "columnheader"))||
-      ((node.tagName.toLowerCase() === "dfn")&&(role.toLowerCase() === "definition"))||
-      ((node.tagName.toLowerCase() === "ul")&&(role.toLowerCase() === "list"))||
-      ((node.tagName.toLowerCase() === "ol")&&(role.toLowerCase() === "list"))||
-      ((node.tagName.toLowerCase() === "li")&&(role.toLowerCase() === "listitem"))||
-      ((node.tagName.toLowerCase() === "tr")&&(role.toLowerCase() === "row"))||
-      ((node.tagName.toLowerCase() === "thead")&&(role.toLowerCase() === "rowgroup"))||
-      ((node.tagName.toLowerCase() === "tbody")&&(role.toLowerCase() === "rowgroup"))||
-      ((node.tagName.toLowerCase() === "tfoot")&&(role.toLowerCase() === "rowgroup"))||
-      ((node.tagName.toLowerCase() === "th")&&(role.toLowerCase() === "rowheader"))||
-      ((node.tagName.toLowerCase() === "hr")&&(role.toLowerCase() === "separator"))||
-      ((node.tagName.toLowerCase() === "dfn")&&(role.toLowerCase() === "term"))||
-      ((node.tagName.toLowerCase() === "header")&&(role.toLowerCase() === "banner"))||
-      ((node.tagName.toLowerCase() === "aside")&&(role.toLowerCase() === "complementary"))||
-      ((node.tagName.toLowerCase() === "footer")&&(role.toLowerCase() === "contentinfo"))||
-      ((node.tagName.toLowerCase() === "nav")&&(role.toLowerCase() === "navigation"))||
-      ((node.tagName.toLowerCase() === "section")&&(role.toLowerCase() === "region"))
-      ) {
-       // Equivalent element/role. No cloning
-       stripRole=true;
-      }
-
-      if (stripRole) {
+      if (isEquivalentElementRole(node, role)) {
+        // Equivalent element/role. No cloning needed
         removedRoleCount++;
         node.removeAttribute("role");
       } else {
