@@ -22,6 +22,7 @@ function transformHTML() {
 
       if (role.toUpperCase() === node.tagName.toUpperCase()) {
         // Same element/role. No cloning
+        // TODO - also strip when role and element are equivalent, e.g. <a>/role=link
         removedRoleCount++;
         node.removeAttribute("role");
       } else {
