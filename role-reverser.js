@@ -34,9 +34,12 @@ function transformHTML() {
       ((node.tagName.toLowerCase() === "th")&&(role.toLowerCase() === "columnheader"))||
       ((node.tagName.toLowerCase() === "dfn")&&(role.toLowerCase() === "definition"))||
       ((node.tagName.toLowerCase() === "ul")&&(role.toLowerCase() === "list"))||
+      ((node.tagName.toLowerCase() === "ol")&&(role.toLowerCase() === "list"))||
       ((node.tagName.toLowerCase() === "li")&&(role.toLowerCase() === "listitem"))||
       ((node.tagName.toLowerCase() === "tr")&&(role.toLowerCase() === "row"))||
       ((node.tagName.toLowerCase() === "thead")&&(role.toLowerCase() === "rowgroup"))||
+      ((node.tagName.toLowerCase() === "tbody")&&(role.toLowerCase() === "rowgroup"))||
+      ((node.tagName.toLowerCase() === "tfoot")&&(role.toLowerCase() === "rowgroup"))||
       ((node.tagName.toLowerCase() === "th")&&(role.toLowerCase() === "rowheader"))||
       ((node.tagName.toLowerCase() === "hr")&&(role.toLowerCase() === "separator"))||
       ((node.tagName.toLowerCase() === "dfn")&&(role.toLowerCase() === "term"))||
