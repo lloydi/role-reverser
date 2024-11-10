@@ -11,17 +11,46 @@ function transformHTML() {
   let removedRoleCount = 0;
   let swappedElCount = 0;
   let labelCounter = 0;
+  let stripRole = false;
 
   function transformNode(node) {
     // Only process elements with a role attribute
+    stripRole = false;
     if (node.nodeType === Node.ELEMENT_NODE && node.hasAttribute('role')) {
       const role = node.getAttribute('role');
       
       // Capture the text content early
       const originalText = node.textContent.trim();
 
-      if (role.toUpperCase() === node.tagName.toUpperCase()) {
+      if (role.toLowerCase() === node.tagName.toLowerCase()) {
         // Same element/role. No cloning
+        stripRole = true;
+      }
+
+      if 
+      (
+      ((node.toLowerCase() === "td")&&(role.toLowerCase() === "cell"))||
+      ((node.toLowerCase() === "td")&&(role.toLowerCase() === "gridcell"))||
+      ((node.toLowerCase() === "th")&&(role.toLowerCase() === "columnheader"))||
+      ((node.toLowerCase() === "dfn")&&(role.toLowerCase() === "definition"))||
+      ((node.toLowerCase() === "ul")&&(role.toLowerCase() === "list"))||
+      ((node.toLowerCase() === "li")&&(role.toLowerCase() === "listitem"))||
+      ((node.toLowerCase() === "tr")&&(role.toLowerCase() === "row"))||
+      ((node.toLowerCase() === "thead")&&(role.toLowerCase() === "rowgroup"))||
+      ((node.toLowerCase() === "th")&&(role.toLowerCase() === "rowheader"))||
+      ((node.toLowerCase() === "hr")&&(role.toLowerCase() === "separator"))||
+      ((node.toLowerCase() === "dfn")&&(role.toLowerCase() === "term"))||
+      ((node.toLowerCase() === "header")&&(role.toLowerCase() === "banner"))||
+      ((node.toLowerCase() === "aside")&&(role.toLowerCase() === "complementary"))||
+      ((node.toLowerCase() === "footer")&&(role.toLowerCase() === "contentinfo"))||
+      ((node.toLowerCase() === "nav")&&(role.toLowerCase() === "navigation"))||
+      ((node.toLowerCase() === "section")&&(role.toLowerCase() === "region"))
+      ) {
+       // Equivalent element/role. No cloning
+       stripRole=true;
+      }
+
+      if (stripRole) {
         removedRoleCount++;
         node.removeAttribute("role");
       } else {
