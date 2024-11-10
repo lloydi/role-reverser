@@ -29,22 +29,22 @@ function transformHTML() {
 
       if 
       (
-      ((node.toLowerCase() === "td")&&(role.toLowerCase() === "cell"))||
-      ((node.toLowerCase() === "td")&&(role.toLowerCase() === "gridcell"))||
-      ((node.toLowerCase() === "th")&&(role.toLowerCase() === "columnheader"))||
-      ((node.toLowerCase() === "dfn")&&(role.toLowerCase() === "definition"))||
-      ((node.toLowerCase() === "ul")&&(role.toLowerCase() === "list"))||
-      ((node.toLowerCase() === "li")&&(role.toLowerCase() === "listitem"))||
-      ((node.toLowerCase() === "tr")&&(role.toLowerCase() === "row"))||
-      ((node.toLowerCase() === "thead")&&(role.toLowerCase() === "rowgroup"))||
-      ((node.toLowerCase() === "th")&&(role.toLowerCase() === "rowheader"))||
-      ((node.toLowerCase() === "hr")&&(role.toLowerCase() === "separator"))||
-      ((node.toLowerCase() === "dfn")&&(role.toLowerCase() === "term"))||
-      ((node.toLowerCase() === "header")&&(role.toLowerCase() === "banner"))||
-      ((node.toLowerCase() === "aside")&&(role.toLowerCase() === "complementary"))||
-      ((node.toLowerCase() === "footer")&&(role.toLowerCase() === "contentinfo"))||
-      ((node.toLowerCase() === "nav")&&(role.toLowerCase() === "navigation"))||
-      ((node.toLowerCase() === "section")&&(role.toLowerCase() === "region"))
+      ((node.tagName.toLowerCase() === "td")&&(role.toLowerCase() === "cell"))||
+      ((node.tagName.toLowerCase() === "td")&&(role.toLowerCase() === "gridcell"))||
+      ((node.tagName.toLowerCase() === "th")&&(role.toLowerCase() === "columnheader"))||
+      ((node.tagName.toLowerCase() === "dfn")&&(role.toLowerCase() === "definition"))||
+      ((node.tagName.toLowerCase() === "ul")&&(role.toLowerCase() === "list"))||
+      ((node.tagName.toLowerCase() === "li")&&(role.toLowerCase() === "listitem"))||
+      ((node.tagName.toLowerCase() === "tr")&&(role.toLowerCase() === "row"))||
+      ((node.tagName.toLowerCase() === "thead")&&(role.toLowerCase() === "rowgroup"))||
+      ((node.tagName.toLowerCase() === "th")&&(role.toLowerCase() === "rowheader"))||
+      ((node.tagName.toLowerCase() === "hr")&&(role.toLowerCase() === "separator"))||
+      ((node.tagName.toLowerCase() === "dfn")&&(role.toLowerCase() === "term"))||
+      ((node.tagName.toLowerCase() === "header")&&(role.toLowerCase() === "banner"))||
+      ((node.tagName.toLowerCase() === "aside")&&(role.toLowerCase() === "complementary"))||
+      ((node.tagName.toLowerCase() === "footer")&&(role.toLowerCase() === "contentinfo"))||
+      ((node.tagName.toLowerCase() === "nav")&&(role.toLowerCase() === "navigation"))||
+      ((node.tagName.toLowerCase() === "section")&&(role.toLowerCase() === "region"))
       ) {
        // Equivalent element/role. No cloning
        stripRole=true;
